@@ -7,5 +7,4 @@ export class HealthCheckController {
   healthCheck() {
     return 'Client Gateway is up and running!!';
   }
-
 }

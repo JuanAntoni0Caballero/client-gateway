@@ -1,7 +1,5 @@
 import { createParamDecorator, ExecutionContext, InternalServerErrorException } from '@nestjs/common';
 
-
-
 export const Token = createParamDecorator(
   (data: unknown, ctx: ExecutionContext) => {
 

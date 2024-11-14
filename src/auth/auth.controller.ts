@@ -9,7 +9,7 @@ import { CurrentUser } from './interfaces/current-user.interface';
 
 @Controller('auth')
 export class AuthController {
-  constructor(@Inject(NATS_SERVICE) private readonly client: ClientProxy) {}
+  constructor(@Inject(NATS_SERVICE) private readonly client: ClientProxy) { }
 
   @Post('register')
   registerUser(@Body() registerUserDto: RegisterUserDto) {
@@ -30,14 +30,9 @@ export class AuthController {
   }
 
 
-  @UseGuards( AuthGuard )
+  @UseGuards(AuthGuard)
   @Get('verify')
-  verifyToken( @User() user: CurrentUser, @Token() token: string  ) {
-
-    // const user = req['user'];
-    // const token = req['token'];
-
-    // return this.client.send('auth.verify.user', {});
+  verifyToken(@User() user: CurrentUser, @Token() token: string) {
     return { user, token }
   }
 }
